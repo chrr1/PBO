@@ -1,10 +1,10 @@
 class Mahasiswa:
-    def __init__(self,nim,nama):
+    def __init__(self, nim, nama):
         self.nim = nim
         self.nama = nama
         self.daftar_nilai = []
 
-    def tambah_nilai(self,nilai):
+    def tambah_nilai(self, nilai):
         self.daftar_nilai.append(nilai)
 
     def hitung_rata_rata(self):
@@ -16,3 +16,22 @@ class Mahasiswa:
         rata = self.hitung_rata_rata()
         print(f'NIM: {self.nim} | Nama: {self.nama} | Rata-rata: {rata:.2f}')
 
+
+class MahasiswaAktif(Mahasiswa):
+    def __init__(self, nim, nama, semester):
+        super().__init__(nim, nama)
+        self.semester = semester
+
+    def tampilkan_data(self):
+        super().tampilkan_data()
+        print(f'Semester: {self.semester}')
+
+
+
+mhs = MahasiswaAktif("230101001", "Christian", 3)
+
+mhs.tambah_nilai(80)
+mhs.tambah_nilai(85)
+mhs.tambah_nilai(90)
+
+mhs.tampilkan_data()
