@@ -1,6 +1,6 @@
 class Rekening:
     def __init__(self,saldo):
-        self.saldo = saldo
+        self.__saldo = saldo
     
     @property
     def saldo(self):
@@ -17,3 +17,12 @@ class Rekening:
             self.__saldo -= jumlah
         else:
             print("Penarikan tidak valid")
+
+rekening = Rekening(1000000)
+print(rekening.saldo)
+
+rekening.setor(500000)
+print(rekening.saldo)
+
+rekening.tarik(200000)
+print(rekening.saldo)
